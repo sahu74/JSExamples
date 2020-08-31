@@ -1,0 +1,101 @@
+
+Function in JavaScript:
+In JavaScript, functions are first-class objects, because they can have properties and methods just like any other object. 
+What distinguishes them from other objects is that functions can be called. In brief, they are Function objects.
+
+Adding properties to primitives doesn’t work:
+
+var str = "heyhey";
+var num = 25;
+var bool = true;
+str.prop = "a";
+num.prop = "b";
+bool.prop = "c";
+console.log([str.prop, num.prop, bool.prop]); 
+
+It will throw error, It does not work, as it is not an object.
+
+
+
+Every function in JavaScript is an instance of the Function constructor:
+
+Functions can also be created by a function expression.
+example: 1
+// x, y is the argument. 'return x + y' is the function body, which is the last in the argument list.
+var add = new Function('x', 'y', 'return x + y');
+var t = add(1, 2);
+console.log(t);  // 3
+
+example : 2
+
+
+The add function above may also be defined using a function expression:
+
+var add = function(x, y) {
+  return x + y;
+};
+var t = add(1, 2);
+console.log(t); // 3
+
+
+
+example : 3
+
+function add(x, y) {
+  return x + y;
+}
+var t = add(1, 2);
+console.log(t); // 3
+
+
+Example : 4
+var add = ((x, y) => {
+  return x + y;
+});
+// or
+var add = ((x, y) => x + y);
+
+var t = add(1, 2);
+console.log(t); // 3
+
+
+Since function is an object in Javascript, so we can  add properties to object.
+example : 5
+
+var funcObj = new Function();
+funcObj.ename="Haramohan";
+funcObj.eid=11;
+funcObj.fun=(a) => {
+  if (a == 1)
+  {
+    console.log(a);
+  }else if (a==2){
+    console.log(a);
+  }
+  else {
+    console.log(a);
+  }
+}
+funcObj.fun(1);
+console.log(funcObj );
+
+
+A function instance has properties and methods.
+
+Functions must be in scope when they are called, but the function declaration can be hoisted
+
+console.log(square(5));
+/* ... */
+function square(n) { return n * n } 
+
+But below code will not work as variable are hoisted but initialised with undefined, but this is not true with function.
+
+
+console.log(square)    // square is hoisted with an initial value undefined.
+console.log(square(5)) // Uncaught TypeError: square is not a function
+const square = function(n) { 
+  return n * n; 
+}
+
+
+
