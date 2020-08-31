@@ -1,3 +1,7 @@
+/*
+The call() method calls a function with a given this value and arguments provided individually.
+*/
+
 function Product(n, p) {
   console.log(" Product Starts \n");
   this.name = n;
